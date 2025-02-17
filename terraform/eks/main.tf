@@ -6,7 +6,7 @@ resource "aws_eks_cluster" "gpu_cluster" {
   name     = "ai--dep-cluster"
   role_arn = aws_iam_role.eks.arn
   vpc_config {
-    subnet_ids = aws_subnet.public.*.id
+    subnet_ids = [aws_subnet.public_1.id, aws_subnet.public_2.id]
   }
 }
 
